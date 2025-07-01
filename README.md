@@ -32,6 +32,52 @@ This project demonstrates how to containerize an application using Docker, push 
 ```
 
 
+---
+
+## ⚙️ Prerequisites
+
+- Azure subscription
+- AKS cluster set up
+- ACR set up and integrated with AKS
+- Azure DevOps account with a project created
+- Service connection to Azure (Azure Resource Manager)
+- Basic understanding of Git, Docker, Kubernetes, and YAML
+
+---
+
+## 🔧 Setup Instructions
+
+### 1. **Clone the Repository**
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
+### 🚢 2. Dockerize the Application
+
+Create a `Dockerfile` at the root of your project if it doesn't already exist:
+
+```Dockerfile
+# Use Node.js base image
+FROM node:18
+
+# Set working directory
+WORKDIR /app
+
+# Copy project files into the container
+COPY . .
+
+# Install dependencies
+RUN npm install
+
+# Expose the app on port 3000
+EXPOSE 3000
+
+# Start the application
+CMD ["node", "index.js"]
+```
+
+
 
 
 
