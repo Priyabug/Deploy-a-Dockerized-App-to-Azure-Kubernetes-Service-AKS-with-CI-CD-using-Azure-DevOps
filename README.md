@@ -76,7 +76,22 @@ EXPOSE 3000
 # Start the application
 CMD ["node", "index.js"]
 ```
+## ☸️ 3. Kubernetes Manifests
 
+Ensure your Kubernetes deployment YAML files (located in the `k8s/` directory) are properly configured to pull the container image from your **Azure Container Registry (ACR)**.
+
+Key areas to check in `deployment.yaml`:
+- ✅ Correct image path: `myregistry.azurecr.io/your-image-name:tag`
+- ✅ ImagePullSecrets (if needed)
+- ✅ Proper resource limits, labels, and selectors
+
+```yaml
+containers:
+  - name: your-app
+    image: <your-acr-name>.azurecr.io/<image>:<tag>
+    ports:
+      - containerPort: 3000
+```
 
 
 
